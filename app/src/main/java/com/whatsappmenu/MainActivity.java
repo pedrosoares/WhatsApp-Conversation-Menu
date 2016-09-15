@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import io.codetail.animation.SupportAnimator;
 import io.codetail.animation.ViewAnimationUtils;
 import android.widget.Toast;
 import android.annotation.TargetApi;
@@ -114,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int radius = Math.max(attachmentLayout.getWidth(), attachmentLayout.getHeight());
 
         try {
-            SupportAnimator animator = ViewAnimationUtils.createCircularReveal(attachmentLayout, cx, cy, 0, radius);
+            Animator animator = ViewAnimationUtils.createCircularReveal(attachmentLayout, cx, cy, 0, radius);
             animator.setInterpolator(new AccelerateDecelerateInterpolator());
             animator.setDuration(300);
 
@@ -124,26 +123,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 animator.start();
                 isHidden = false;
             } else {
-                SupportAnimator animatorReverse = animator.reverse();
+                Animator animatorReverse = ViewAnimationUtils.createCircularReveal(attachmentLayout, cx, cy, radius, 0);
                 animatorReverse.start();
-                animatorReverse.addListener(new SupportAnimator.AnimatorListener() {
+                animatorReverse.addListener(new Animator.AnimatorListener() {
                     @Override
-                    public void onAnimationStart() {
+                    public void onAnimationStart(Animator a) {
                     }
 
                     @Override
-                    public void onAnimationEnd() {
+                    public void onAnimationEnd(Animator a) {
                         //Log.e("MainActivity", "onAnimationEnd");
                         isHidden = true;
                         attachmentLayout.setVisibility(View.INVISIBLE);
                     }
 
                     @Override
-                    public void onAnimationCancel() {
+                    public void onAnimationCancel(Animator a) {
                     }
 
                     @Override
-                    public void onAnimationRepeat() {
+                    public void onAnimationRepeat(Animator a) {
                     }
                 });
             }
