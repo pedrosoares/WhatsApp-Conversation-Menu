@@ -3,7 +3,7 @@ Whatsapp conversation attachment menu.
 
 Requires Android
 ----
-Compatible with Android 2.3 (GINGERBREAD - 9) and above.
+Compatible with Android 4.4 (KITKAT - 15) and above.
 
 Apk
 ----
@@ -24,6 +24,7 @@ License
 The MIT License (MIT)
 
 Copyright (c) 2016 Shayan Rais (http://shanraisshan.com)
+Copyright (c) 2016 Pedro Augusto da Silva Soares (https://pedrosoares.net)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
